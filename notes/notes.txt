@@ -1,0 +1,7 @@
+Links:
+
+https://www.baldengineer.com/arduino-keyboard-matrix-tutorial.html
+good keyboard scanning tutorial
+
+https://www.hackster.io/cameroncoward/64-key-prototyping-keyboard-matrix-for-arduino-4c9531
+Arduino 64 keys

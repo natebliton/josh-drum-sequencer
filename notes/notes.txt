@@ -5,3 +5,9 @@ good keyboard scanning tutorial
 
 https://www.hackster.io/cameroncoward/64-key-prototyping-keyboard-matrix-for-arduino-4c9531
 Arduino 64 keys
+
+arduino shift register tutorial
+https://lastminuteengineers.com/74hc595-shift-register-arduino-tutorial/
+
+tutorial on this shift register with daisy
+https://forum.electro-smith.com/t/gpio-outputs-and-74hc595-serial-latch-by-example-beginners-guide/561

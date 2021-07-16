@@ -11,3 +11,6 @@ https://lastminuteengineers.com/74hc595-shift-register-arduino-tutorial/
 
 tutorial on this shift register with daisy
 https://forum.electro-smith.com/t/gpio-outputs-and-74hc595-serial-latch-by-example-beginners-guide/561
+
+kicad footprint for daisy
+https://forum.electro-smith.com/t/kicad-symbol-and-footprint/361

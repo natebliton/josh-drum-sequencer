@@ -175,21 +175,21 @@ F 3 "https://assets.nexperia.com/documents/data-sheet/1N4148_1N4448.pdf" H 5350 
 	1    5350 1900
 	1    0    0    -1  
 $EndComp
-Text GLabel 8050 1900 1    50   Input ~ 0
+Text GLabel 7200 2450 1    50   Input ~ 0
 pm-out8
 Text GLabel 5900 1550 1    50   Input ~ 0
 pm-out1
-Text GLabel 7650 1450 1    50   Input ~ 0
+Text GLabel 6800 2000 1    50   Input ~ 0
 pm-out2
-Text GLabel 7750 1450 1    50   Input ~ 0
+Text GLabel 6900 2000 1    50   Input ~ 0
 pm-out3
-Text GLabel 7850 1450 1    50   Input ~ 0
+Text GLabel 7000 2000 1    50   Input ~ 0
 pm-out4
-Text GLabel 7950 1450 1    50   Input ~ 0
+Text GLabel 7100 2000 1    50   Input ~ 0
 pm-out5
-Text GLabel 8050 1450 1    50   Input ~ 0
+Text GLabel 7200 2000 1    50   Input ~ 0
 pm-out6
-Text GLabel 8150 1450 1    50   Input ~ 0
+Text GLabel 7300 2000 1    50   Input ~ 0
 pm-out7
 $Comp
 L Switch:SW_SPST SW2
@@ -318,6 +318,8 @@ F 3 "https://assets.nexperia.com/documents/data-sheet/1N4148_1N4448.pdf" H 5350 
 	1    5350 4350
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	5900 3500 5900 3850
 Text GLabel 4950 4000 0    50   Input ~ 0
 pm-in5
 Wire Wire Line
@@ -413,246 +415,4 @@ Wire Wire Line
 	5200 5350 5200 5500
 Wire Wire Line
 	5200 5500 4950 5500
-$Comp
-L Switch:SW_SPST SW?
-U 1 1 60F86FCC
-P 6550 1900
-F 0 "SW?" H 6550 2135 50  0000 C CNN
-F 1 "SW_SPST" H 6550 2044 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 6550 1900 50  0001 C CNN
-F 3 "~" H 6550 1900 50  0001 C CNN
-	1    6550 1900
-	1    0    0    -1  
-$EndComp
-$Comp
-L Diode:1N4148 D?
-U 1 1 60F86FD2
-P 6200 1900
-F 0 "D?" H 6200 2116 50  0000 C CNN
-F 1 "1N4148" H 6200 2025 50  0000 C CNN
-F 2 "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal" H 6200 1725 50  0001 C CNN
-F 3 "https://assets.nexperia.com/documents/data-sheet/1N4148_1N4448.pdf" H 6200 1900 50  0001 C CNN
-	1    6200 1900
-	1    0    0    -1  
-$EndComp
-Text GLabel 6750 1550 1    50   Input ~ 0
-pm-out2
-$Comp
-L Switch:SW_SPST SW?
-U 1 1 60F86FD9
-P 6550 2400
-F 0 "SW?" H 6550 2635 50  0000 C CNN
-F 1 "SW_SPST" H 6550 2544 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 6550 2400 50  0001 C CNN
-F 3 "~" H 6550 2400 50  0001 C CNN
-	1    6550 2400
-	1    0    0    -1  
-$EndComp
-$Comp
-L Diode:1N4148 D?
-U 1 1 60F86FDF
-P 6200 2400
-F 0 "D?" H 6200 2616 50  0000 C CNN
-F 1 "1N4148" H 6200 2525 50  0000 C CNN
-F 2 "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal" H 6200 2225 50  0001 C CNN
-F 3 "https://assets.nexperia.com/documents/data-sheet/1N4148_1N4448.pdf" H 6200 2400 50  0001 C CNN
-	1    6200 2400
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6750 1550 6750 1900
-Wire Wire Line
-	6050 1900 6050 2050
-$Comp
-L Switch:SW_SPST SW?
-U 1 1 60F86FE8
-P 6550 2900
-F 0 "SW?" H 6550 3135 50  0000 C CNN
-F 1 "SW_SPST" H 6550 3044 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 6550 2900 50  0001 C CNN
-F 3 "~" H 6550 2900 50  0001 C CNN
-	1    6550 2900
-	1    0    0    -1  
-$EndComp
-$Comp
-L Diode:1N4148 D?
-U 1 1 60F86FEE
-P 6200 2900
-F 0 "D?" H 6200 3116 50  0000 C CNN
-F 1 "1N4148" H 6200 3025 50  0000 C CNN
-F 2 "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal" H 6200 2725 50  0001 C CNN
-F 3 "https://assets.nexperia.com/documents/data-sheet/1N4148_1N4448.pdf" H 6200 2900 50  0001 C CNN
-	1    6200 2900
-	1    0    0    -1  
-$EndComp
-$Comp
-L Switch:SW_SPST SW?
-U 1 1 60F86FF4
-P 6550 3400
-F 0 "SW?" H 6550 3635 50  0000 C CNN
-F 1 "SW_SPST" H 6550 3544 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 6550 3400 50  0001 C CNN
-F 3 "~" H 6550 3400 50  0001 C CNN
-	1    6550 3400
-	1    0    0    -1  
-$EndComp
-$Comp
-L Diode:1N4148 D?
-U 1 1 60F86FFA
-P 6200 3400
-F 0 "D?" H 6200 3616 50  0000 C CNN
-F 1 "1N4148" H 6200 3525 50  0000 C CNN
-F 2 "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal" H 6200 3225 50  0001 C CNN
-F 3 "https://assets.nexperia.com/documents/data-sheet/1N4148_1N4448.pdf" H 6200 3400 50  0001 C CNN
-	1    6200 3400
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6750 1900 6750 2400
-Connection ~ 6750 1900
-Connection ~ 6750 2400
-Wire Wire Line
-	6750 2400 6750 2900
-Connection ~ 6750 2900
-Wire Wire Line
-	6750 2900 6750 3400
-$Comp
-L Switch:SW_SPST SW?
-U 1 1 60F87006
-P 6550 3850
-F 0 "SW?" H 6550 4085 50  0000 C CNN
-F 1 "SW_SPST" H 6550 3994 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 6550 3850 50  0001 C CNN
-F 3 "~" H 6550 3850 50  0001 C CNN
-	1    6550 3850
-	1    0    0    -1  
-$EndComp
-$Comp
-L Diode:1N4148 D?
-U 1 1 60F8700C
-P 6200 3850
-F 0 "D?" H 6200 4066 50  0000 C CNN
-F 1 "1N4148" H 6200 3975 50  0000 C CNN
-F 2 "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal" H 6200 3675 50  0001 C CNN
-F 3 "https://assets.nexperia.com/documents/data-sheet/1N4148_1N4448.pdf" H 6200 3850 50  0001 C CNN
-	1    6200 3850
-	1    0    0    -1  
-$EndComp
-$Comp
-L Switch:SW_SPST SW?
-U 1 1 60F87012
-P 6550 4350
-F 0 "SW?" H 6550 4585 50  0000 C CNN
-F 1 "SW_SPST" H 6550 4494 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 6550 4350 50  0001 C CNN
-F 3 "~" H 6550 4350 50  0001 C CNN
-	1    6550 4350
-	1    0    0    -1  
-$EndComp
-$Comp
-L Diode:1N4148 D?
-U 1 1 60F87018
-P 6200 4350
-F 0 "D?" H 6200 4566 50  0000 C CNN
-F 1 "1N4148" H 6200 4475 50  0000 C CNN
-F 2 "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal" H 6200 4175 50  0001 C CNN
-F 3 "https://assets.nexperia.com/documents/data-sheet/1N4148_1N4448.pdf" H 6200 4350 50  0001 C CNN
-	1    6200 4350
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6750 3500 6750 3850
-Wire Wire Line
-	6050 3850 6050 4000
-$Comp
-L Switch:SW_SPST SW?
-U 1 1 60F87021
-P 6550 4850
-F 0 "SW?" H 6550 5085 50  0000 C CNN
-F 1 "SW_SPST" H 6550 4994 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 6550 4850 50  0001 C CNN
-F 3 "~" H 6550 4850 50  0001 C CNN
-	1    6550 4850
-	1    0    0    -1  
-$EndComp
-$Comp
-L Diode:1N4148 D?
-U 1 1 60F87027
-P 6200 4850
-F 0 "D?" H 6200 5066 50  0000 C CNN
-F 1 "1N4148" H 6200 4975 50  0000 C CNN
-F 2 "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal" H 6200 4675 50  0001 C CNN
-F 3 "https://assets.nexperia.com/documents/data-sheet/1N4148_1N4448.pdf" H 6200 4850 50  0001 C CNN
-	1    6200 4850
-	1    0    0    -1  
-$EndComp
-$Comp
-L Switch:SW_SPST SW?
-U 1 1 60F8702D
-P 6550 5350
-F 0 "SW?" H 6550 5585 50  0000 C CNN
-F 1 "SW_SPST" H 6550 5494 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 6550 5350 50  0001 C CNN
-F 3 "~" H 6550 5350 50  0001 C CNN
-	1    6550 5350
-	1    0    0    -1  
-$EndComp
-$Comp
-L Diode:1N4148 D?
-U 1 1 60F87033
-P 6200 5350
-F 0 "D?" H 6200 5566 50  0000 C CNN
-F 1 "1N4148" H 6200 5475 50  0000 C CNN
-F 2 "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal" H 6200 5175 50  0001 C CNN
-F 3 "https://assets.nexperia.com/documents/data-sheet/1N4148_1N4448.pdf" H 6200 5350 50  0001 C CNN
-	1    6200 5350
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6750 3850 6750 4350
-Connection ~ 6750 3850
-Connection ~ 6750 4350
-Wire Wire Line
-	6750 4350 6750 4850
-Connection ~ 6750 4850
-Wire Wire Line
-	6750 4850 6750 5350
-Wire Wire Line
-	6050 2400 6050 2550
-Wire Wire Line
-	6050 2900 6050 3050
-Wire Wire Line
-	6050 3400 6050 3550
-Wire Wire Line
-	6050 4350 6050 4500
-Wire Wire Line
-	6050 4850 6050 5000
-Wire Wire Line
-	6050 5000 5800 5000
-Wire Wire Line
-	6050 5350 6050 5500
-Wire Wire Line
-	5200 2050 6050 2050
-Connection ~ 5200 2050
-Wire Wire Line
-	5200 2550 6050 2550
-Connection ~ 5200 2550
-Wire Wire Line
-	5200 3050 6050 3050
-Connection ~ 5200 3050
-Wire Wire Line
-	5200 3550 6050 3550
-Connection ~ 5200 3550
-Wire Wire Line
-	5900 3400 5900 3850
-Connection ~ 5900 3400
-Wire Wire Line
-	5200 4000 6050 4000
-Connection ~ 5200 4000
-Wire Wire Line
-	5200 4500 6050 4500
-Connection ~ 5200 4500
-Wire Wire Line
-	5200 5500 6050 5500
-Connection ~ 5200 5500
 $EndSCHEMATC

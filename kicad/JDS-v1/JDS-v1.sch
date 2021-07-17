@@ -1602,4 +1602,30 @@ Text GLabel 3350 3300 2    50   Input ~ 0
 pm-serial
 Text GLabel 3350 3200 2    50   Input ~ 0
 pm-enable
+$Comp
+L Connector_Generic:Conn_01x06 J12
+U 1 1 6147F77D
+P 1500 4800
+F 0 "J12" H 1580 4792 50  0000 L CNN
+F 1 "Out" H 1580 4701 50  0000 L CNN
+F 2 "NateTemp:StereoJackTRS3" H 1500 4800 50  0001 C CNN
+F 3 "~" H 1500 4800 50  0001 C CNN
+	1    1500 4800
+	1    0    0    -1  
+$EndComp
+Text GLabel 1300 5000 0    50   Input ~ 0
+toAmpL
+$Comp
+L power:GND #PWR0108
+U 1 1 614F5DCF
+P 1300 4600
+F 0 "#PWR0108" H 1300 4350 50  0001 C CNN
+F 1 "GND" H 1305 4427 50  0000 C CNN
+F 2 "" H 1300 4600 50  0001 C CNN
+F 3 "" H 1300 4600 50  0001 C CNN
+	1    1300 4600
+	0    1    1    0   
+$EndComp
+Text GLabel 1300 4800 0    50   Input ~ 0
+toAmpR
 $EndSCHEMATC

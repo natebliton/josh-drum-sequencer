@@ -14,3 +14,6 @@ https://forum.electro-smith.com/t/gpio-outputs-and-74hc595-serial-latch-by-examp
 
 kicad footprint for daisy
 https://forum.electro-smith.com/t/kicad-symbol-and-footprint/361
+
+general tutorial on shift registers
+https://dronebotworkshop.com/shift-registers/

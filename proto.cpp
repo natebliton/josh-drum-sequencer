@@ -7,6 +7,12 @@
 using namespace daisy;
 using namespace daisysp;
 
+// defines for shift register
+#define GPIO_4    {  DSY_GPIOC, 9 }
+#define GPIO_5    {  DSY_GPIOC, 8 }
+#define GPIO_6    {  DSY_GPIOD, 2 }
+
+
 // Declare a DaisySeed object called hardware
 DaisySeed hardware;
 
@@ -109,6 +115,70 @@ void AudioCallback(AudioHandle::InterleavingInputBuffer in,
 
 
 
+class ShiftOut
+{
+  public:
+    ShiftOut() {}
+    ~ShiftOut() {}
+
+        /*
+    ledPins[0] GPIO_4 = 74HC595 SCK pin 11 (clock)
+    ledPins[1] GPIO_5 = 74HC595 EN pin 12 (chip enable / latch ) 
+    ledPins[2] GPIO_6 = 74HC595 SER pin 14 (data) 
+    */
+
+    void Init(){
+        //setup the pins as outputs
+        for(size_t i = 0; i < 3; i++) {
+            ledPins[i].pin  = pins[i];
+            ledPins[i].mode = DSY_GPIO_MODE_OUTPUT_PP;
+            ledPins[i].pull = DSY_GPIO_NOPULL;
+            dsy_gpio_init(&ledPins[i]);
+            dsy_gpio_write(&ledPins[i], 1);
+        }
+    }
+
+    void Write(uint8_t data) {
+        //enable serial buffer , disable write to output buffer
+        dsy_gpio_write(&ledPins[1], 0);
+        for (uint8_t i = 0; i < 8; ++i) {
+            //check the least significant bit
+            //and write the data pin high or low
+            if ( (data & BITMASK) == BITMASK) {
+                dsy_gpio_write(&ledPins[2], 1);  
+            } 
+            else {
+                dsy_gpio_write(&ledPins[2], 0);   
+            }
+            //shift data down one bit, i.e. parallel to serial 
+            data >>= 1;
+            //clock low   
+            dsy_gpio_write(&ledPins[0], 0);
+            System::Delay(1);
+            //dsy_system_delay(1);
+            //clock high
+            dsy_gpio_write(&ledPins[0], 1);
+            System::Delay(1);
+            //dsy_system_delay(1);
+        }
+        // after all 8 bits,  latch data from 74HC595 serial buffer to its output with a pulse
+        dsy_gpio_write(&ledPins[1], 1);
+        System::Delay(1);
+        //dsy_system_delay(1);
+        dsy_gpio_write(&ledPins[1], 0);
+    }  
+
+  private:
+
+    dsy_gpio_pin pins[3] = {
+        GPIO_4,  GPIO_5,  GPIO_6
+    };
+    dsy_gpio ledPins[3];
+
+    const uint8_t BITMASK = 0x1;
+
+};
+
 
 int main(void)
 {
@@ -192,16 +262,41 @@ int main(void)
     // start calling the callback function
     hardware.StartAudio(AudioCallback);
 
+  //  static Leds leds;
+   // leds.Init();
+    // initialize 595 shift register
+    static ShiftOut shiftOut;
+    shiftOut.Init();
+
     // Loop forever
     for(;;)
     {
+       
         // Set the onboard LED
         hardware.SetLed(led_state);
 
         // Toggle the LED state for the next time around.
         led_state = !led_state;
-
-        // Wait 500ms
-        System::Delay(100);
+               
+        shiftOut.Write( 0b00000001 );
+       // System::Delay(1);
+        shiftOut.Write( 0b00000010);
+        //dsy_system_delay(500);
+       // System::Delay(1);
+        shiftOut.Write( 0b00000100 );
+      //  System::Delay(1);
+        shiftOut.Write( 0b000001000 );
+      //  System::Delay(1);
+        shiftOut.Write( 0b000010000 );
+       // System::Delay(1);
+        shiftOut.Write( 0b000100000 );
+       // System::Delay(1);
+        shiftOut.Write( 0b001000000 );
+       // System::Delay(1);
+        shiftOut.Write( 0b010000000 );
+      //  System::Delay(1);
+        shiftOut.Write( 0b100000000 );
+      //  System::Delay(1);
+        
     }
 }

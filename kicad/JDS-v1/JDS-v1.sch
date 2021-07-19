@@ -1,5 +1,5 @@
 EESchema Schematic File Version 4
-EELAYER 30 0
+EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -1586,7 +1586,7 @@ Wire Wire Line
 	3550 2900 3550 2500
 Wire Wire Line
 	3550 2500 3650 2500
-Text GLabel 3350 3600 2    50   Input ~ 0
+Text GLabel 3350 3300 2    50   Input ~ 0
 pm-clock
 Wire Wire Line
 	3350 2700 3650 2700
@@ -1598,7 +1598,7 @@ Wire Wire Line
 	3400 2650 3650 2650
 Wire Wire Line
 	3650 2650 3650 2600
-Text GLabel 3350 3300 2    50   Input ~ 0
+Text GLabel 3350 3600 2    50   Input ~ 0
 pm-serial
 Text GLabel 3350 3200 2    50   Input ~ 0
 pm-enable

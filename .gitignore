@@ -33,3 +33,7 @@
 
 # Mac OS hidden files
 *.DS_Store
+
+# KiCad backup files
+*.bak
+*.kicad_pcb-bak

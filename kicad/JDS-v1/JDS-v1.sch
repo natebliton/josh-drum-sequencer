@@ -240,7 +240,7 @@ U 1 1 60F48B14
 P 4000 1150
 F 0 "J1" H 3918 1667 50  0000 C CNN
 F 1 "toPegMatrix" H 3918 1576 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical" H 4000 1150 50  0001 C CNN
+F 2 "Connector_RJ:RJ45_Amphenol_54602-x08_Horizontal" H 4000 1150 50  0001 C CNN
 F 3 "~" H 4000 1150 50  0001 C CNN
 	1    4000 1150
 	-1   0    0    -1  
@@ -268,7 +268,7 @@ U 1 1 60F5D0B3
 P 6200 2100
 F 0 "J2" H 6280 2092 50  0000 L CNN
 F 1 "fromPegsA" H 6280 2001 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical" H 6200 2100 50  0001 C CNN
+F 2 "Connector_RJ:RJ45_Amphenol_54602-x08_Horizontal" H 6200 2100 50  0001 C CNN
 F 3 "~" H 6200 2100 50  0001 C CNN
 	1    6200 2100
 	1    0    0    -1  
@@ -438,7 +438,7 @@ U 1 1 60F91DC4
 P 7650 2100
 F 0 "J3" H 7730 2092 50  0000 L CNN
 F 1 "fromPegsB" H 7730 2001 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical" H 7650 2100 50  0001 C CNN
+F 2 "Connector_RJ:RJ45_Amphenol_54602-x08_Horizontal" H 7650 2100 50  0001 C CNN
 F 3 "~" H 7650 2100 50  0001 C CNN
 	1    7650 2100
 	1    0    0    -1  
@@ -608,7 +608,7 @@ U 1 1 60FA105E
 P 9050 2100
 F 0 "J4" H 9130 2092 50  0000 L CNN
 F 1 "fromPegsC" H 9130 2001 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical" H 9050 2100 50  0001 C CNN
+F 2 "Connector_RJ:RJ45_Amphenol_54602-x08_Horizontal" H 9050 2100 50  0001 C CNN
 F 3 "~" H 9050 2100 50  0001 C CNN
 	1    9050 2100
 	1    0    0    -1  
@@ -778,7 +778,7 @@ U 1 1 60FAF581
 P 10450 2100
 F 0 "J5" H 10530 2092 50  0000 L CNN
 F 1 "fromPegsD" H 10530 2001 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical" H 10450 2100 50  0001 C CNN
+F 2 "Connector_RJ:RJ45_Amphenol_54602-x08_Horizontal" H 10450 2100 50  0001 C CNN
 F 3 "~" H 10450 2100 50  0001 C CNN
 	1    10450 2100
 	1    0    0    -1  
@@ -948,7 +948,7 @@ U 1 1 60FF6573
 P 6200 5000
 F 0 "J6" H 6280 4992 50  0000 L CNN
 F 1 "fromPegsE" H 6280 4901 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical" H 6200 5000 50  0001 C CNN
+F 2 "Connector_RJ:RJ45_Amphenol_54602-x08_Horizontal" H 6200 5000 50  0001 C CNN
 F 3 "~" H 6200 5000 50  0001 C CNN
 	1    6200 5000
 	1    0    0    -1  
@@ -1118,7 +1118,7 @@ U 1 1 60FF65D0
 P 7650 5000
 F 0 "J7" H 7730 4992 50  0000 L CNN
 F 1 "fromPegsF" H 7730 4901 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical" H 7650 5000 50  0001 C CNN
+F 2 "Connector_RJ:RJ45_Amphenol_54602-x08_Horizontal" H 7650 5000 50  0001 C CNN
 F 3 "~" H 7650 5000 50  0001 C CNN
 	1    7650 5000
 	1    0    0    -1  
@@ -1288,7 +1288,7 @@ U 1 1 60FF662D
 P 9050 5000
 F 0 "J8" H 9130 4992 50  0000 L CNN
 F 1 "fromPegsG" H 9130 4901 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical" H 9050 5000 50  0001 C CNN
+F 2 "Connector_RJ:RJ45_Amphenol_54602-x08_Horizontal" H 9050 5000 50  0001 C CNN
 F 3 "~" H 9050 5000 50  0001 C CNN
 	1    9050 5000
 	1    0    0    -1  
@@ -1458,7 +1458,7 @@ U 1 1 60FF668A
 P 10450 5000
 F 0 "J9" H 10530 4992 50  0000 L CNN
 F 1 "fromPegsH" H 10530 4901 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical" H 10450 5000 50  0001 C CNN
+F 2 "Connector_RJ:RJ45_Amphenol_54602-x08_Horizontal" H 10450 5000 50  0001 C CNN
 F 3 "~" H 10450 5000 50  0001 C CNN
 	1    10450 5000
 	1    0    0    -1  
@@ -1519,7 +1519,7 @@ U 1 1 6112093B
 P 4250 2600
 F 0 "J10" H 4168 3117 50  0000 C CNN
 F 1 "mInJA" H 4168 3026 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical" H 4250 2600 50  0001 C CNN
+F 2 "Connector_RJ:RJ45_Amphenol_54602-x08_Horizontal" H 4250 2600 50  0001 C CNN
 F 3 "~" H 4250 2600 50  0001 C CNN
 	1    4250 2600
 	-1   0    0    -1  
@@ -1530,7 +1530,7 @@ U 1 1 611312B7
 P 3850 3550
 F 0 "J11" H 3768 2925 50  0000 C CNN
 F 1 "mInJB" H 3768 3016 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical" H 3850 3550 50  0001 C CNN
+F 2 "Connector_RJ:RJ45_Amphenol_54602-x08_Horizontal" H 3850 3550 50  0001 C CNN
 F 3 "~" H 3850 3550 50  0001 C CNN
 	1    3850 3550
 	1    0    0    1   

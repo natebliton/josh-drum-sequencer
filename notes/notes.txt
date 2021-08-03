@@ -22,3 +22,7 @@ bubblegum sequencer
 www.backin.de/gumball/Bubblegum%20Sequencer.pdf
 http://www.backin.de/gumball/
 
+maybe redesign to use photodiodes instead, with schmitt triggers to help reaction be clear?
+schmitt trigger: https://www.digikey.com/en/products/detail/texas-instruments/SN74LVC14ADBR/377431
+photodiode or photoresister
+

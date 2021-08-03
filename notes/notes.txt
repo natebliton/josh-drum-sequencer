@@ -17,3 +17,8 @@ https://forum.electro-smith.com/t/kicad-symbol-and-footprint/361
 
 general tutorial on shift registers
 https://dronebotworkshop.com/shift-registers/
+
+bubblegum sequencer
+www.backin.de/gumball/Bubblegum%20Sequencer.pdf
+http://www.backin.de/gumball/
+

@@ -1,6 +1,5 @@
 EESchema Schematic File Version 4
-LIBS:JDS-v1-cache
-EELAYER 26 0
+EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -1536,7 +1535,7 @@ F 3 "~" H 3850 3550 50  0001 C CNN
 	1    0    0    1   
 $EndComp
 $Comp
-L Device_Audio_Electrosmith_Daisy_Seed:Device_Audio_Electrosmith_Daisy_Seed_Rev4 A1
+L Daisy:Device_Audio_Electrosmith_Daisy_Seed_Rev4 A1
 U 1 1 60F2087B
 P 2350 3550
 F 0 "A1" H 2350 5015 50  0000 C CNN
@@ -1760,4 +1759,76 @@ Wire Wire Line
 	4200 6250 4200 6400
 Wire Wire Line
 	4200 6400 4650 6400
+$Comp
+L Device:R_POT RV1
+U 1 1 611AE2CD
+P 3750 5450
+F 0 "RV1" H 3680 5496 50  0000 R CNN
+F 1 "Vol" H 3680 5405 50  0000 R CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 3750 5450 50  0001 C CNN
+F 3 "~" H 3750 5450 50  0001 C CNN
+	1    3750 5450
+	1    0    0    -1  
+$EndComp
+Text GLabel 1350 3450 0    50   Input ~ 0
+pot2
+Text GLabel 3900 5450 2    50   Input ~ 0
+pot1
+$Comp
+L Device:R_POT RV2
+U 1 1 61205484
+P 4500 5450
+F 0 "RV2" H 4430 5496 50  0000 R CNN
+F 1 "Tempo" H 4430 5405 50  0000 R CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 4500 5450 50  0001 C CNN
+F 3 "~" H 4500 5450 50  0001 C CNN
+	1    4500 5450
+	1    0    0    -1  
+$EndComp
+Text GLabel 4650 5450 2    50   Input ~ 0
+pot2
+$Comp
+L power:GND #PWR?
+U 1 1 61205D51
+P 3750 5600
+F 0 "#PWR?" H 3750 5350 50  0001 C CNN
+F 1 "GND" H 3755 5427 50  0000 C CNN
+F 2 "" H 3750 5600 50  0001 C CNN
+F 3 "" H 3750 5600 50  0001 C CNN
+	1    3750 5600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 612061D5
+P 4500 5600
+F 0 "#PWR?" H 4500 5350 50  0001 C CNN
+F 1 "GND" H 4505 5427 50  0000 C CNN
+F 2 "" H 4500 5600 50  0001 C CNN
+F 3 "" H 4500 5600 50  0001 C CNN
+	1    4500 5600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR?
+U 1 1 6120645B
+P 3750 5300
+F 0 "#PWR?" H 3750 5150 50  0001 C CNN
+F 1 "+3.3V" V 3765 5428 50  0000 L CNN
+F 2 "" H 3750 5300 50  0001 C CNN
+F 3 "" H 3750 5300 50  0001 C CNN
+	1    3750 5300
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR?
+U 1 1 612070B2
+P 4500 5300
+F 0 "#PWR?" H 4500 5150 50  0001 C CNN
+F 1 "+3.3V" V 4515 5428 50  0000 L CNN
+F 2 "" H 4500 5300 50  0001 C CNN
+F 3 "" H 4500 5300 50  0001 C CNN
+	1    4500 5300
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

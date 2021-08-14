@@ -14,6 +14,10 @@ using namespace daisysp;
 #define GPIO_5    {  DSY_GPIOC, 8 }
 #define GPIO_6    {  DSY_GPIOD, 2 }
 
+int pot1GPIOpin = 15;
+int pot2GPIOpin = 16;
+
+
 // Declare a DaisySeed object called hardware
 DaisySeed hardware;
 

@@ -1535,7 +1535,7 @@ F 3 "~" H 3850 3550 50  0001 C CNN
 	1    0    0    1   
 $EndComp
 $Comp
-L Daisy:Device_Audio_Electrosmith_Daisy_Seed_Rev4 A1
+L Device_Audio_Electrosmith_Daisy_Seed:Device_Audio_Electrosmith_Daisy_Seed_Rev4 A1
 U 1 1 60F2087B
 P 2350 3550
 F 0 "A1" H 2350 5015 50  0000 C CNN
@@ -1810,10 +1810,10 @@ F 3 "" H 4500 5600 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:+3.3VA #PWR?
+L power:+3.3VA #PWR0113
 U 1 1 61235359
 P 1350 2650
-F 0 "#PWR?" H 1350 2500 50  0001 C CNN
+F 0 "#PWR0113" H 1350 2500 50  0001 C CNN
 F 1 "+3.3VA" V 1365 2777 50  0000 L CNN
 F 2 "" H 1350 2650 50  0001 C CNN
 F 3 "" H 1350 2650 50  0001 C CNN
@@ -1821,10 +1821,10 @@ F 3 "" H 1350 2650 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L power:+3.3VA #PWR?
+L power:+3.3VA #PWR0114
 U 1 1 6129B29F
 P 3750 5300
-F 0 "#PWR?" H 3750 5150 50  0001 C CNN
+F 0 "#PWR0114" H 3750 5150 50  0001 C CNN
 F 1 "+3.3VA" H 3765 5473 50  0000 C CNN
 F 2 "" H 3750 5300 50  0001 C CNN
 F 3 "" H 3750 5300 50  0001 C CNN
@@ -1832,14 +1832,36 @@ F 3 "" H 3750 5300 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:+3.3VA #PWR?
+L power:+3.3VA #PWR0115
 U 1 1 6129C4A4
 P 4500 5300
-F 0 "#PWR?" H 4500 5150 50  0001 C CNN
+F 0 "#PWR0115" H 4500 5150 50  0001 C CNN
 F 1 "+3.3VA" H 4515 5473 50  0000 C CNN
 F 2 "" H 4500 5300 50  0001 C CNN
 F 3 "" H 4500 5300 50  0001 C CNN
 	1    4500 5300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x08 J15
+U 1 1 611AC6EE
+P 5600 7050
+F 0 "J15" H 5518 7567 50  0000 C CNN
+F 1 "swOut" H 5518 7476 50  0000 C CNN
+F 2 "Connector_RJ:RJ45_Amphenol_54602-x08_Horizontal" H 5600 7050 50  0001 C CNN
+F 3 "~" H 5600 7050 50  0001 C CNN
+	1    5600 7050
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x08 J14
+U 1 1 611AE0FC
+P 6000 7050
+F 0 "J14" H 5918 7567 50  0000 C CNN
+F 1 "swOutJump" H 5918 7476 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical" H 6000 7050 50  0001 C CNN
+F 3 "~" H 6000 7050 50  0001 C CNN
+	1    6000 7050
 	1    0    0    -1  
 $EndComp
 $EndSCHEMATC

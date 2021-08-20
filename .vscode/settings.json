@@ -9,7 +9,10 @@
     "-Wpedantic"
   ],
   "C_Cpp_Runner.compilerArgs": [],
-  "C_Cpp_Runner.includePaths": [],
+  "C_Cpp_Runner.includePaths": [
+    "/Users/nate/Documents/JoshSoundScience/pegSequencer/libdaisy/**",
+    "/Users/nate/Documents/JoshSoundScience/pegSequencer/DaisySP/**"
+  ],
   "C_Cpp_Runner.linkerArgs": [],
   "C_Cpp_Runner.cStandard": "",
   "C_Cpp_Runner.cppStandard": "c++11",

@@ -3,7 +3,9 @@
     {
       "name": "macos-gcc-x64",
       "includePath": [
-        "${workspaceFolder}/**"
+        "${workspaceFolder}/**",
+        "/Users/nate/Documents/JoshSoundScience/pegSequencer/libdaisy/**",
+        "/Users/nate/Documents/JoshSoundScience/pegSequencer/DaisySP/**"
       ],
       "compilerPath": "/usr/bin/clang",
       "cStandard": "${default}",

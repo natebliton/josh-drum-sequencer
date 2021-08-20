@@ -17,6 +17,7 @@ using namespace daisysp;
 int pot1GPIOpin = 15;
 int pot2GPIOpin = 16;
 
+int shiftGPIOinPins[] = {7, 8, 9, 10, 11, 12, 13, 14};
 
 // Declare a DaisySeed object called hardware
 DaisySeed hardware;
@@ -205,6 +206,13 @@ class ShiftOut
 
 };
 
+// reads eight pins at a time
+void readEightPins(int startingPin, dsy_gpio pin[]) {
+    for(int i = 0; i < 8; i++) {
+        pegs[i] = !(bool)dsy_gpio_read(&pin[i]);
+    }
+}
+
 
 int main(void)
 {
@@ -320,6 +328,19 @@ int main(void)
     static ShiftOut shiftOut;
     shiftOut.Init();
 
+
+    // initialize shift register input pins
+    dsy_gpio_pin pinsIn[8];
+    static dsy_gpio shiftInPins[8];
+    for(int i = 0; i < 8; i++){
+        pinsIn[i].pin = shiftGPIOinPins[i];
+        shiftInPins[i].pin = pinsIn[i];
+        shiftInPins[i].mode = DSY_GPIO_MODE_INPUT;
+        shiftInPins[i].pull = DSY_GPIO_PULLUP;
+        dsy_gpio_init(&shiftInPins[i]);
+    }
+
+    
     // Loop forever
     for(;;)
     {
@@ -331,23 +352,23 @@ int main(void)
         led_state = !led_state;
                
         shiftOut.Write( 0b00000001 );
-       // System::Delay(1);
+        // input is starting peg
+        readEightPins(0, shiftInPins);
         shiftOut.Write( 0b00000010);
-        //dsy_system_delay(500);
-       // System::Delay(1);
+        readEightPins(8, shiftInPins);
         shiftOut.Write( 0b00000100 );
-      //  System::Delay(1);
-        shiftOut.Write( 0b000001000 );
-      //  System::Delay(1);
-        shiftOut.Write( 0b000010000 );
-       // System::Delay(1);
-        shiftOut.Write( 0b000100000 );
-       // System::Delay(1);
-        shiftOut.Write( 0b001000000 );
-       // System::Delay(1);
-        shiftOut.Write( 0b010000000 );
-      //  System::Delay(1);
-        shiftOut.Write( 0b100000000 );
+        readEightPins(16, shiftInPins);
+        shiftOut.Write( 0b00001000 );
+        readEightPins(24, shiftInPins);
+        shiftOut.Write( 0b00010000 );
+        readEightPins(32, shiftInPins);
+        shiftOut.Write( 0b00100000 );
+        readEightPins(40, shiftInPins);
+        shiftOut.Write( 0b01000000 );
+        readEightPins(48, shiftInPins);
+        shiftOut.Write( 0b10000000 );
+        readEightPins(56, shiftInPins);
+        //shiftOut.Write( 0b100000000 );
       //  System::Delay(1);
         
     }

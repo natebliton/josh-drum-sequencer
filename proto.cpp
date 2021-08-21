@@ -9,10 +9,18 @@
 using namespace daisy;
 using namespace daisysp;
 
-// defines for shift register
+// defines for peg shift register
 #define GPIO_4    {  DSY_GPIOC, 9 }
 #define GPIO_5    {  DSY_GPIOC, 8 }
 #define GPIO_6    {  DSY_GPIOD, 2 }
+
+// defines for LED shift registers
+#define GPIO_26    {  DSY_GPIOC, 9 }
+#define GPIO_27    {  DSY_GPIOC, 8 }
+#define GPIO_28    {  DSY_GPIOD, 2 }
+
+
+constexpr size_t lightFlashTime = 50;
 
 int pot1GPIOpin = 15;
 int pot2GPIOpin = 16;
@@ -86,17 +94,22 @@ void AudioCallback(AudioHandle::InterleavingInputBuffer in,
                 osc_sine.SetFreq(freq);
                 osc_saw.SetFreq(freq);
 
+            //    pegLEDs.flash(metroStep);
+
             }
 
             if(pegs[metroStep + 16]){
                 snareEnv.Trigger();
+             //   pegLEDs.flash(metroStep + 16);
             }
 
             if(pegs[metroStep + 32]){
                 tom1Env.Trigger();
+             //   pegLEDs.flash(metroStep + 32);
             }
 
             if(pegs[metroStep + 48]) {
+             //   pegLEDs.flash(metroStep + 48);
                 tom2Env.Trigger();
             }
         }
@@ -140,7 +153,93 @@ void AudioCallback(AudioHandle::InterleavingInputBuffer in,
     }
 }
 
+class PegLEDs
+{
+    public:
+    PegLEDs() {}
+    ~PegLEDs() {}
 
+    void Init() {
+        // zero out each counter;
+        for(size_t i; i < 64; i++) {
+            flashCounters[i][0] = 0;
+            flashCounters[i][1] = lightFlashTime;
+        }
+
+        //setup the pins as outputs
+        for(size_t i = 0; i < 3; i++) {
+            LEDshiftPins[i].pin  = LEDpins[i];
+            LEDshiftPins[i].mode = DSY_GPIO_MODE_OUTPUT_PP;
+            LEDshiftPins[i].pull = DSY_GPIO_NOPULL;
+            dsy_gpio_init(&LEDshiftPins[i]);
+            dsy_gpio_write(&LEDshiftPins[i], 1);
+        }
+    }
+
+    void Update() {
+        for(size_t i = 0; i < 64; i++) {
+            if(flashCounters[i][0] > 0) {
+                flashCounters[i][0] ++;
+            }
+            if(flashCounters[i][0] > flashCounters[i][1]) {
+                flashCounters[i][0] = 0;
+            }
+        }
+      //  Write(constructString());
+    }
+
+    // set led to be counting, and set duration
+    void Flash(size_t led, int duration) {
+        flashCounters[led][0] = 1;
+        flashCounters[led][1] = duration;
+    }
+
+    void Write(uint8_t data) {
+        //enable serial buffer , disable write to output buffer
+        dsy_gpio_write(&LEDshiftPins[1], 0);
+        for (uint8_t i = 0; i < 8; ++i) {
+            //check the least significant bit
+            //and write the data pin high or low
+            if ( (data & LEDBITMASK) == LEDBITMASK) {
+                dsy_gpio_write(&LEDshiftPins[2], 1);  
+            } 
+            else {
+                dsy_gpio_write(&LEDshiftPins[2], 0);   
+            }
+            //shift data down one bit, i.e. parallel to serial 
+            data >>= 1;
+            //clock low   
+            dsy_gpio_write(&LEDshiftPins[0], 0);
+            System::Delay(1);
+            //dsy_system_delay(1);
+            //clock high
+            dsy_gpio_write(&LEDshiftPins[0], 1);
+            System::Delay(1);
+            //dsy_system_delay(1);
+        }
+        // after all 8 bits,  latch data from 74HC595 serial buffer to its output with a pulse
+        dsy_gpio_write(&LEDshiftPins[1], 1);
+        System::Delay(1);
+        //dsy_system_delay(1);
+        dsy_gpio_write(&LEDshiftPins[1], 0);
+    }  
+
+    private:
+        // 64 places to keep track of how long an LED has been lit, and how long it should stay lit
+        size_t flashCounters[64][2];
+
+        // shift registers
+        dsy_gpio_pin LEDpins[3] = {
+            GPIO_26,  GPIO_27,  GPIO_28
+        };
+        dsy_gpio LEDshiftPins[3];
+
+        const uint8_t LEDBITMASK = 0x1;
+
+        uint64_t constructData() {
+           // 0b00001000
+        }
+};
 
 class ShiftOut
 {

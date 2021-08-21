@@ -37,7 +37,7 @@ AdEnv kickVolEnv, kickPitchEnv, snareEnv;
 AdEnv tom1Env, tom2Env;
 
 // array to keep track of whether pegs are in each hole
-bool pegs[64];
+static bool pegs[64];
 int testBeatArray[64] = {1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,
                          0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,
                          1,0,1,0,1,1,1,0,0,1,0,1,1,0,1,0,
@@ -206,6 +206,42 @@ class ShiftOut
 
 };
 
+class ShiftIn {
+    public: 
+    ShiftIn() {}
+    ~ShiftIn() {}
+
+        /*
+    shiftPins[0] GPIO_4 = 74HC595 SCK pin 11 (clock)
+    shiftPins[1] GPIO_5 = 74HC595 EN pin 12 (chip enable / latch ) 
+    shiftPins[2] GPIO_6 = 74HC595 SER pin 14 (data) 
+    */
+
+    void Init(){
+        //setup the pins as inputs with pullup
+        for(int i = 0; i < 8; i++){
+            pinsIn[i].pin = shiftGPIOinPins[i];
+            shiftInPins[i].pin = pinsIn[i];
+            shiftInPins[i].mode = DSY_GPIO_MODE_INPUT;
+            shiftInPins[i].pull = DSY_GPIO_PULLUP;
+            dsy_gpio_init(&shiftInPins[i]);
+        }
+
+    }
+
+    void readEightPins( int startingPin) {
+        for(int i = 0; i < 8; i++) {
+            pegs[i] = !(bool)dsy_gpio_read(&shiftInPins[i]);
+        }    
+    }
+
+    private:
+            // initialize shift register input pins
+        dsy_gpio_pin pinsIn[8];
+        dsy_gpio shiftInPins[8];
+
+};
+
 // reads eight pins at a time
 void readEightPins(int startingPin, dsy_gpio pin[]) {
     for(int i = 0; i < 8; i++) {
@@ -328,7 +364,7 @@ int main(void)
     static ShiftOut shiftOut;
     shiftOut.Init();
 
-
+/*
     // initialize shift register input pins
     dsy_gpio_pin pinsIn[8];
     static dsy_gpio shiftInPins[8];
@@ -339,8 +375,10 @@ int main(void)
         shiftInPins[i].pull = DSY_GPIO_PULLUP;
         dsy_gpio_init(&shiftInPins[i]);
     }
+    */
+    static ShiftIn shiftIn;
+    shiftIn.Init();
 
-    
     // Loop forever
     for(;;)
     {
@@ -353,21 +391,22 @@ int main(void)
                
         shiftOut.Write( 0b00000001 );
         // input is starting peg
-        readEightPins(0, shiftInPins);
+        shiftIn.readEightPins(0);
         shiftOut.Write( 0b00000010);
-        readEightPins(8, shiftInPins);
+        //readEightPins(8, shiftInPins);
+        shiftIn.readEightPins(8);
         shiftOut.Write( 0b00000100 );
-        readEightPins(16, shiftInPins);
+        shiftIn.readEightPins(16);
         shiftOut.Write( 0b00001000 );
-        readEightPins(24, shiftInPins);
+        shiftIn.readEightPins(24);
         shiftOut.Write( 0b00010000 );
-        readEightPins(32, shiftInPins);
+        shiftIn.readEightPins(32);
         shiftOut.Write( 0b00100000 );
-        readEightPins(40, shiftInPins);
+        shiftIn.readEightPins(40);
         shiftOut.Write( 0b01000000 );
-        readEightPins(48, shiftInPins);
+        shiftIn.readEightPins(48);
         shiftOut.Write( 0b10000000 );
-        readEightPins(56, shiftInPins);
+        shiftIn.readEightPins(56);
         //shiftOut.Write( 0b100000000 );
       //  System::Delay(1);
         

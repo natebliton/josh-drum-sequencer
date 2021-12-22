@@ -2,8 +2,8 @@
 
 ## Author
 
-<!-- Insert Your Name Here -->
+Nate Bliton
 
 ## Description
 
-<!-- Describe your example here -->
+This is a second pass at a 16-step 4 channel drum sequencer using an electrosmith daisy, a shift register, and other handmade hardware.

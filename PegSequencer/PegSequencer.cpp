@@ -13,9 +13,9 @@ DaisySeed hw;
 #define GPIO_6    {  DSY_GPIOD, 2 }
 
 // defines for LED shift registers
-#define GPIO_26    {  DSY_GPIOC, 9 }
-#define GPIO_27    {  DSY_GPIOC, 8 }
-#define GPIO_28    {  DSY_GPIOD, 2 }
+//#define GPIO_26    {  DSY_GPIOC, 9 }
+//#define GPIO_27    {  DSY_GPIOC, 8 }
+//#define GPIO_28    {  DSY_GPIOD, 2 }
 
 int shiftGPIOinPins[] = {7, 8, 9, 10, 11, 12, 13, 14};
 
@@ -26,6 +26,9 @@ int shiftPosition = 0;
 
 // drum objects
 AnalogBassDrum kickDrum;
+AnalogBassDrum kickHigh;
+AnalogSnareDrum snareDrum;
+HiHat<SquareNoise> hihat;
 
 // test oscillator 
 Oscillator osc;
@@ -34,14 +37,14 @@ Oscillator osc;
 static Metro clock;
 // int to keep track fo which step we are on (0-15)
 int metroStep = 0;
-float metroFreq = 16.0f;
+float metroFreq = 32.0f;
 
 // array to keep track of whether pegs are in each hole
 static bool pegs[64];
 int testBeatArray[64] = {1,0,1,1,1,0,1,0,1,0,0,1,1,1,0,0,
                          0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,
-                         1,0,1,0,1,1,1,0,0,1,0,1,1,0,1,0,
-                         0,0,0,1,0,0,0,1,0,0,1,0,0,1,0,0};
+                         0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,
+                         0,0,1,0,0,1,1,0,0,0,1,0,0,0,1,0};
 
 
     
@@ -52,7 +55,7 @@ void AudioCallback(AudioHandle::InterleavingInputBuffer in, AudioHandle::Interle
     uint8_t tic;
 
 	// building sample variables
-	float kick_out, sigL, sigR, osc_out;
+	float kick_out, kickHigh_out, snare_out, hihat_out, sigL, sigR, osc_out;
 
 // sends sound straight through
 /*
@@ -76,14 +79,32 @@ void AudioCallback(AudioHandle::InterleavingInputBuffer in, AudioHandle::Interle
 			kickDrum.Trig();
 		}
 
+        if(pegs[metroStep + 16]) {
+            kickHigh.Trig();
+        }
+
+        if(testBeatArray[metroStep + 32] ) {
+            snareDrum.Trig();
+        }
+        if(testBeatArray[metroStep + 48])
+        {
+            hihat.Trig();
+        }
+
 	}
 
 	// prepare audio block
 	for(size_t i = 0; i < size; i += 2) {
 		kick_out = kickDrum.Process();
-		osc_out = osc.Process();
-		sigL = osc_out;
-		sigR = kick_out * 100;
+        kickHigh_out = kickHigh.Process();
+		snare_out = snareDrum.Process();
+        hihat_out = hihat.Process();
+
+        //osc_out = osc.Process();
+		//sigL = osc_out;
+
+        // mono for now
+		sigL = sigR = (kick_out + kickHigh_out + snare_out + hihat_out) * 50;
 		out[i] = sigL;
 		out[i + 1] = sigR;
 	}
@@ -195,6 +216,12 @@ int main(void)
 
 	// initialize drums
 	kickDrum.Init(sample_rate);
+    kickHigh.Init(sample_rate);
+    kickHigh.SetFreq(200.0f);
+    snareDrum.Init(sample_rate);
+//    snareDrum.SetSustain()
+    hihat.Init(sample_rate);
+    hihat.SetDecay(0.01f);
 	//kickDrum.SetFreq(100.0f);
 	//kickDrum.SetDecay(0.5f);
 	

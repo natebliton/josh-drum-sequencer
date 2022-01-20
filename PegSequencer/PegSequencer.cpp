@@ -18,7 +18,15 @@ int shiftGPIOinPins[] = {7, 8, 9, 10, 11, 12, 13, 14};
 dsy_gpio_pin pinsIn[8];
 dsy_gpio shiftInPins[8];
 int shiftPosition = 0;
-
+int shiftOutStates[8] = {0b10000000,
+                        0b01000000,
+                        0b00100000,
+                        0b00010000,
+                        0b00001000,
+                        0b00000100,
+                        0b00000010,
+                        0b00000001};
+                       
 // drum objects
 AnalogBassDrum kickDrum;
 AnalogBassDrum kickHigh;
@@ -190,9 +198,11 @@ int main(void)
 	bool led_state = true;
 	// led_state = true;
   // nonsense
-    // Loop forever
+
+    // Loop forever, reading switches and ADCs and writing LEDs
     for(;;)
     {
+        // read ADC for tempo
         tempoKnob = hw.adc.GetFloat(0);
         metroFreq = 10 + tempoKnob * 100;
         clock.SetFreq(metroFreq);
@@ -207,31 +217,12 @@ int main(void)
         System::Delay(10);
 		//kickDrum.Trig();
 
-        shiftPosition = 0;
-        shiftOut.Write( 0b10000000 );
-        // input is starting peg
-        readEightPins(0);
-
-        shiftPosition = 1;
-        shiftOut.Write( 0b01000000);
-        readEightPins(8);
-        shiftPosition = 2;
-        shiftOut.Write( 0b00100000 );
-        readEightPins(16);
-        shiftPosition = 3;
-        shiftOut.Write( 0b00010000 );
-        readEightPins(24);
-        shiftPosition = 4;
-        shiftOut.Write( 0b00001000 );
-        readEightPins(32);
-        shiftPosition = 5;
-        shiftOut.Write( 0b00000100 );
-        readEightPins(40);
-        shiftPosition = 6;
-        shiftOut.Write( 0b00000010 );
-        readEightPins(48);
-        shiftPosition = 7;
-        shiftOut.Write( 0b00000001 );
-        readEightPins(56);
+        // scan peg switches
+        for (int i = 0; i < 8; i++) {
+            shiftPosition = i;
+            shiftOut.Write(shiftOutStates[i]);
+            readEightPins(i*8);
+        }
+        
     }
 }
